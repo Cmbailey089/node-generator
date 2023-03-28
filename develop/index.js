@@ -1,92 +1,65 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const { writeFile } = require('fs').promises;
+const fs = require('fs');
+const genMark = require('./generateMarkdown');
 
 // TODO: Create an array of questions for user input
-const questions = ({title,description,installation}) =>
-`(https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-
-#${title}
-
-##A quick description of the app
-
-${description}
-
-#Table of Contents
-
-*[installation](#installation)
-
-*[usage](#usage)
-
-*[license](#license)
-
-*[contribution](#contribution)
-
-*[test](#test)
-
-*[github](#github)
-
-*[email](#email)
-
-${installation}
-${usage}
-${license}
-${contribution}
-${usage}
-${github}
-${email}
-
-
-`
-    inquirer.prompt([
+const questions = [
         {
             type:'input',
-            name: 'title',
-            messages: 'What is the title of your project?',
+            name:'title', 
+            question:'What is the title of your project?',
+           
         },
         {
             type:'input',
-            name: 'description',
-            messages: 'Describe your project.',
+            name:'description',
+            question:'Describe your project.',
+           
         },
         {
             type:'input',
             name: 'installation',
-            messages: 'What do you install to create your app?',
+            question: 'What do you install to create your app?',
+            
         },
         {
             type:'input',
             name: 'usage',
-            messages: 'How do you use your app?',
+            question:'How do you use your app?',
+            
         },
         {
-            type:'input',
-            name: 'license',
-            messages: 'Which license do you use?',
-        },
-        {
-            type:'input',
-            name: 'contribution',
-            messages: 'How can contributions be made?',
-        },
-        {
-            type:'input',
-            name: 'test',
-            messages: 'How do you test your app?',
-        },
-        {
-            type:'input',
-            name: 'github',
-            messages: 'Enter your Github Username.',
-        },
-        {
-            type:'input',
-            name: 'email',
-            messages: 'Enter your email address.',
-        },
+            type:'list',
+            name:'license',
+            question:'Which license do you use?', 
+            choices:['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None'],
 
-]);
+        },
+        {
+            type:'input',
+            name:'contribution',
+            question:'How can contributions be made?',
+            
+        },
+        {
+            type:'input',
+            question: 'How do you test your app?',
+             name:'test',
+           
+        },
+        {
+            type:'input',
+            question:'Enter your Github Username.',
+             name:'github',
+            
+        },
+        {
+            type:'input',
+            question: 'Enter your email address.',
+            name: 'email',
+            
+        }];
 
 
 // TODO: Create a function to write README file
@@ -98,13 +71,17 @@ function writeToFile (fileName, data) {
         } else {
             console.log("done")
         }
-    })
+    });
 
 }
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer
+    inquirer.prompt(questions)
+    .then(function(data) {
+        writeToFile('README.md',genMark(data));
+        console.log(data)
+    })
 }
 
 // Function call to initialize app
