@@ -8,56 +8,56 @@ const questions = [
         {
             type:'input',
             name:'title', 
-            question:'What is the title of your project?',
+            message:'What is the title of your project?',
            
         },
         {
             type:'input',
             name:'description',
-            question:'Describe your project.',
+            message:'Describe your project.',
            
         },
         {
             type:'input',
             name: 'installation',
-            question: 'What do you install to create your app?',
+            message: 'What do you install to create your app?',
             
         },
         {
             type:'input',
             name: 'usage',
-            question:'How do you use your app?',
+            message:'How do you use your app?',
             
         },
         {
             type:'list',
             name:'license',
-            question:'Which license do you use?', 
+            message:'Which license do you use?', 
             choices:['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None'],
 
         },
         {
             type:'input',
             name:'contribution',
-            question:'How can contributions be made?',
+            message:'How can contributions be made?',
             
         },
         {
             type:'input',
-            question: 'How do you test your app?',
-             name:'test',
+            name:'test',
+            message: 'How do you test your app?',
            
         },
         {
             type:'input',
-            question:'Enter your Github Username.',
-             name:'github',
-            
+            name:'github',
+            message:'Enter your Github Username.',
+                      
         },
         {
             type:'input',
-            question: 'Enter your email address.',
             name: 'email',
+            message: 'Enter your email address.',            
             
         }];
 
@@ -65,11 +65,11 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile (fileName, data) {
     fs.writeFile(fileName,data, function(err) {
-        console.log("yes")
+        console.log("Yes!!!")
         if (err) {
             return console.log(err)
         } else {
-            console.log("done")
+            console.log("Done")
         }
     });
 

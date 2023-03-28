@@ -43,7 +43,13 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-
+  let section = license;
+  let rendSection = ``
+  if (section === true) {
+   rendSection = `This app is licensed under ${license}`
+  } 
+  
+  return rendSection;
 }
 
 // TODO: Create a function to generate markdown for README
@@ -57,35 +63,67 @@ ${renderLicenseBadge(data.license)}
 
 ${data.description}
 
-#Table of Contents
+# Table of Contents
 
-*[installation](#installation)
+*[Installation](# Installation)
 
-*[usage](#usage)
+*[Usage](# Usage)
 
-*[license](#license)
+*[License](# License)
 
-*[contribution](#contribution)
+*[Contribution](# Contributions)
 
-*[test](#test)
+*[Test](# Test)
 
-*[github](#github)
+*[Questions](# Questions)
 
-*[email](#email)
+### Installation
 
-${data.installation}
+I installed ${data.installation} to create this app.
+
+
+
+
+
+# Usage
+
 ${data.usage}
+
+
+
+# License
+
 ${data.license}
 ${renderLicenseLink(data.license)}
+${renderLicenseSection(data.license)}
+
+
+
+### Contributions
+
 ${data.contribution}
-${data.github}
-${data.email}
+
+
+
+
+### Test
+
+${data.test}
+
+
+
+
+# Questions
+
+If you have any questions regarding this app and additional uses,
+you can contact me at ${data.email}.
+
+My GitHub is also available for questions and credentials.
+https://github.com/${data.github}
+
 
 
 `
-
-
-  
 }
 
 module.exports = generateMarkdown;
