@@ -45,7 +45,7 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   let section = license;
   let rendSection = ``
-  if (section === true) {
+  if (section == true) {
    rendSection = `This app is licensed under ${license}`
   } 
   
@@ -65,17 +65,17 @@ ${data.description}
 
 # Table of Contents
 
-*[Installation](# Installation)
+* [Installation](#installation)
 
-*[Usage](# Usage)
+* [Usage]#usage)
 
-*[License](# License)
+* [License](#license)
 
-*[Contribution](# Contributions)
+* [Contribution](#contributions)
 
-*[Test](# Test)
+* [Test](#test)
 
-*[Questions](# Questions)
+* [Questions](#questions)
 
 ### Installation
 
@@ -85,13 +85,13 @@ I installed ${data.installation} to create this app.
 
 
 
-# Usage
+### Usage
 
 ${data.usage}
 
 
 
-# License
+### License
 
 ${data.license}
 ${renderLicenseLink(data.license)}
@@ -113,7 +113,7 @@ ${data.test}
 
 
 
-# Questions
+### Questions
 
 If you have any questions regarding this app and additional uses,
 you can contact me at ${data.email}.

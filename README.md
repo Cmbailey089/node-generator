@@ -1,1 +1,7 @@
-# node-generator['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None']
+# node-generator
+
+* I originally tried to change it up and uses promises but then changes my mind and went with regular format instead.
+
+* After cloning the starter and installed everything i need and weeded out the doubles.
+
+* I used the .gitignore from the starter so that is why the package lock is ignored too.
