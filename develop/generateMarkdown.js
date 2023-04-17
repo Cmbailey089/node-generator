@@ -47,7 +47,9 @@ function renderLicenseSection(license) {
   let rendSection = ``
   if (section == true) {
    rendSection = `This app is licensed under ${license}`
-  } 
+  } else {
+    "no license selected"
+  }
   
   return rendSection;
 }
